@@ -11,9 +11,6 @@ function Header() {
         Home
       </div>
       <div className='page'>
-        <button>
-          
-        </button>
         Cp Problems
       </div>
       <div className='page'>
