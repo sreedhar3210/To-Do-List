@@ -17,12 +17,15 @@ const mongoDB = async () => {
             //console.log("Fetched data:", fetched_data);
 
             const data = await fetched_data.find({}).toArray();
+            return data;
             console.log("Data:", data); // Log the data array
         } catch (err) {
             console.error("Error fetching data:", err);
+            throw err;
         }
     } catch (error) {
         console.error("Failed to connect to the database:", error);
+        return err;
     }
 }
 
