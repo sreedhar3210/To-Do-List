@@ -1,9 +1,23 @@
 import React from 'react'
+import axios from 'axios'
 import '../css/Login.css'
 
 function Login() {
   var username = '';
   var password = '';
+
+  const fetchData = () => {
+    axios.get('http://localhost:5000/api/users')
+      .then(response => {
+        console.log(response.data);
+        handleLogin(response.data);
+        // Handle the fetched data
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
+  };
+
   //events are only to be handled in arrow functions because of the latest updates.
   const handleUserNameChange = (event) => {
     //here we do not need to use this.username because this is undefined in function scope
@@ -17,6 +31,16 @@ function Login() {
   const handleOnSubmit = (event) => {
     console.log("username is " + username);
     console.log("password is " + password);
+    fetchData();
+  }
+
+  const handleLogin = (userData) => {
+    var userFound = false;
+    userData.forEach(user => {
+      if(user.username === username && user.password === password)    userFound = true;
+    });
+    if(userFound)   console.log('user is found');
+    else            console.log('no such user exists');
   }
 
   return (
