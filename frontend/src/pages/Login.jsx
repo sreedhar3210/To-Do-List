@@ -6,6 +6,7 @@ function Login() {
   var username = '';
   var password = '';
 
+  //function for fetching data from the backend.
   const fetchData = () => {
     axios.get('http://localhost:5000/api/users')
       .then(response => {

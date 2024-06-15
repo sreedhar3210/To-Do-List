@@ -22,7 +22,7 @@ function Header() {
       <div className='page'>
         Web Series
       </div>
-      <div className='profile'>
+      <div className='user'>
         Profile
       </div>
     </div>    
