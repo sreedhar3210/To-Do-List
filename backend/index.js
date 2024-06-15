@@ -8,7 +8,7 @@ const app = express();
 
 app.use(
     cors({
-        origin: 'http://192.168.31.66:3000',
+        origin: 'http://127.0.0.1:3000',
     })
 )
 
