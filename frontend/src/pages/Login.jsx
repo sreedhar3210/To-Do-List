@@ -1,11 +1,12 @@
 import React from 'react'
 import axios from 'axios'
+import { Link, useNavigate } from 'react-router-dom'
 import '../css/Login.css'
 
 function Login() {
   var username = '';
   var password = '';
-
+  const navigate = useNavigate();
   //function for fetching data from the backend.
   const fetchData = () => {
     axios.get('http://localhost:5000/api/users')
@@ -46,6 +47,7 @@ function Login() {
 
   return (
     <div className='loginCard'>
+      <h3>Login here for To Do List Application</h3>
       <h3>Enter UserName</h3>
       <input type="text" aria-label='UserName' placeholder='Username' onChange={handleUserNameChange}/>
       <h3>Enter Password</h3>
@@ -56,7 +58,7 @@ function Login() {
       </button>
       <p>
         didn't have an account, 
-        <a href="https://www.google.com">register here</a>
+        <Link to='/signup'>register here!!</Link>
       </p>
     </div>
   )
