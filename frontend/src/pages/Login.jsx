@@ -37,12 +37,14 @@ function Login() {
   }
 
   const handleLogin = (userData) => {
-    var userFound = false;
-    userData.forEach(user => {
-      if(user.username === username && user.password === password)    userFound = true;
-    });
-    if(userFound)   console.log('user is found');
-    else            console.log('no such user exists');
+    const user = userData.find(user => user.username === username && user.password === password);
+    if (user) {
+      console.log('User is found');
+      // here we are navigating to home page while also passing the user information.
+      navigate('/home', { state: { user } });
+    } else {
+      console.log('No such user exists');
+    }
   }
 
   return (

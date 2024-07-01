@@ -1,6 +1,13 @@
+html,body{
+    height: 100%;
+    margin-top: 0;
+    padding: 0;
+}
+
 .header{
     display: flex;                      /*makes all the components under this to be in same line.*/
-    align-items: center;                /*aligns them vertically center*/
+    align-items: flex-start;                /*aligns them vertically center*/
+    margin-top: 2%;
 }
 
 .title{
